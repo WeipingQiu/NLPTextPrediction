@@ -1,14 +1,17 @@
 from subprocess import call
+import subprocess
 import math
 import os
 import csv
 csv_columns = ['text']
+gitPath= "C:\\Program Files\\Git\\mingw64\\bin\\git.exe"
 
 with open('top100_repository.txt', 'r') as f:
     lines = f.readlines()
 
 for line in lines:
-    call(['git', 'clone', line.strip(), f'resources/{line.strip().split("/")[-1]}'])
+    #call(['git', 'clone', line.strip(), f'resources/{line.strip().split("/")[-1]}'])
+    call([gitPath, 'clone',line.strip(), f'resources/{line.strip().split("/")[-1]}'])
 
 json_data = []
 total_files = []
